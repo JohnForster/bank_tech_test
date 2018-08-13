@@ -11,6 +11,10 @@ class Account
     @transactions.push(Transaction.new(amount))
   end
 
+  def withdraw(amount)
+    @transactions.push(Transaction.new(-amount))
+  end
+
   def print
     rows = @transactions
     table = Terminal::Table.new :headings => %w[Date Credit Debit Balance], :rows => rows
