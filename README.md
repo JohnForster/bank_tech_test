@@ -1,5 +1,5 @@
-# John Forster - Bank Tech Test
-A command line program that handles a simple bank account, storing transactions and printing statements.
+# 💰💰 Bank Tech Test 💰💰
+A command line program that handles a simple bank account, storing transactions and printing statements. Written by John Forster
 
 ## How to use
 * Clone this repo
@@ -11,6 +11,6 @@ A command line program that handles a simple bank account, storing transactions 
 * Transactions can be completed with `#deposit` and `#withdraw` eg. `my_account.deposit(44.56)`
 * View a statement with `#statement` eg. `my_account.statement`
 
-## Code coverage
+## Code coverage ✅
 100% code coverage achieved. This can be checked by running `rspec` in the command line,
 as [simplecov](https://github.com/colszowka/simplecov) coverage checker is included in the gemfile.
