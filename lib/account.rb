@@ -22,7 +22,7 @@ class Account
 
   def print
     rows = @transactions
-    table = Terminal::Table.new :headings => %w[Date Credit Debit Balance], :rows => rows
+    table = Terminal::Table.new headings: %w[Date Credit Debit Balance], rows: rows
     puts table
   end
 end
