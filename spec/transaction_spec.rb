@@ -26,4 +26,10 @@ describe Transaction do
     expect(t1 <=> transaction.time).to eq(-1)
     expect(t2 <=> transaction.time).to eq(1)
   end
+
+  it 'should throw an error if the transaction amount is 0' do
+    transaction_error = 'No transaction amount given'
+    stub_const('Transaction::TRANSACTION_ERROR', transaction_error)
+    expect { Transaction.new(0) }.to raise_error transaction_error
+  end
 end
