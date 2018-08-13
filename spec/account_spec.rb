@@ -32,4 +32,13 @@ describe Account do
       expect { @account.withdraw(-1) }.to raise_error negative_error
     end
   end
+
+  describe '#statement' do
+    it 'should call the print function on the given statement printer' do
+      transaction_list = double('transaction_list')
+      @account.instance_variable_set(:@transactions, transaction_list)
+      expect(@statement_printer).to receive(:print).with(transaction_list)
+      @account.statement
+    end
+  end
 end
