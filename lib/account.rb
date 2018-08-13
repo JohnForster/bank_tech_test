@@ -3,6 +3,7 @@ require './lib/transaction.rb'
 
 class Account
   NEGATIVE_WITHDRAWAL_ERROR = 'Cannot withdraw a negative amount.'
+  NEGATIVE_DEPOSIT_ERROR = 'Cannot deposit a negative amount.'.freeze
 
   def initialize
     @balance = 0
@@ -10,6 +11,7 @@ class Account
   end
 
   def deposit(amount)
+    raise ArgumentError, NEGATIVE_DEPOSIT_ERROR if amount < 0
     @transactions.push(Transaction.new(amount))
   end
 
