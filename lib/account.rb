@@ -6,7 +6,7 @@ class Account
   NEGATIVE_DEPOSIT_ERROR = 'Cannot deposit a negative amount.'.freeze
 
   def initialize
-    @balance = 0g
+    @balance = 0
     @transactions = []
   end
 
