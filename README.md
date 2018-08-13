@@ -1,4 +1,4 @@
-# 💰💰 Bank Tech Test 💰💰
+# 🏦🏦 Bank Tech Test 🏦🏦
 A command line program that handles a simple bank account, storing transactions and printing statements. Written by John Forster
 
 ## How to use
