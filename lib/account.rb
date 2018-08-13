@@ -1,13 +1,15 @@
 require 'terminal-table'
 require './lib/transaction.rb'
+require './lib/statement_printer.rb'
 
 class Account
   NEGATIVE_WITHDRAWAL_ERROR = 'Cannot withdraw a negative amount.'.freeze
   NEGATIVE_DEPOSIT_ERROR = 'Cannot deposit a negative amount.'.freeze
 
-  def initialize
+  def initialize(statement_printer = StatementPrinter)
     @balance = 0
     @transactions = []
+    @statement_printer = statement_printer
   end
 
   def deposit(amount)
@@ -21,8 +23,6 @@ class Account
   end
 
   def statement
-    rows = @transactions
-    table = Terminal::Table.new headings: %w[Date Credit Debit Balance], rows: rows
-    puts table
+    @statement_printer.print(@transactions)
   end
 end

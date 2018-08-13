@@ -2,8 +2,9 @@ require './lib/account.rb'
 
 describe Account do
   before(:each) do
-    @account = Account.new
     @transaction_class = class_double('Transaction').as_stubbed_const
+    @statement_printer = class_double('StatementPrinter').as_stubbed_const
+    @account = Account.new
   end
 
   describe '#deposit' do
@@ -31,6 +32,4 @@ describe Account do
       expect { @account.withdraw(-1) }.to raise_error negative_error
     end
   end
-
-  describe ''
 end
