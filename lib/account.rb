@@ -2,11 +2,11 @@ require 'terminal-table'
 require './lib/transaction.rb'
 
 class Account
-  NEGATIVE_WITHDRAWAL_ERROR = 'Cannot withdraw a negative amount.'
+  NEGATIVE_WITHDRAWAL_ERROR = 'Cannot withdraw a negative amount.'.freeze
   NEGATIVE_DEPOSIT_ERROR = 'Cannot deposit a negative amount.'.freeze
 
   def initialize
-    @balance = 0
+    @balance = 0g
     @transactions = []
   end
 
