@@ -14,12 +14,14 @@ class Account
 
   def deposit(amount)
     raise ArgumentError, NEGATIVE_DEPOSIT_ERROR if amount < 0
-    @transactions.push(Transaction.new(amount))
+    subsequent_balance = @balance += amount
+    @transactions.push(Transaction.new(amount, subsequent_balance))
   end
 
   def withdraw(amount)
     raise ArgumentError, NEGATIVE_WITHDRAWAL_ERROR if amount < 0
-    @transactions.push(Transaction.new(-amount))
+    subsequent_balance = @balance -= amount
+    @transactions.push(Transaction.new(-amount, subsequent_balance))
   end
 
   def statement

@@ -34,4 +34,9 @@ describe Transaction do
     stub_const('Transaction::TRANSACTION_ERROR', transaction_error)
     expect { Transaction.new(0) }.to raise_error transaction_error
   end
+
+  it 'should store the subsequent balance' do
+    transaction = Transaction.new(40, 20.15)
+    expect(transaction.subsequent_balance).to eq 20.15
+  end
 end

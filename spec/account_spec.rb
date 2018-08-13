@@ -9,7 +9,7 @@ describe Account do
 
   describe '#deposit' do
     it 'creates a new transaction' do
-      expect(@transaction_class).to receive(:new).with(23.40)
+      expect(@transaction_class).to receive(:new).with(23.40, 23.40)
       @account.deposit(23.40)
     end
 
@@ -22,7 +22,7 @@ describe Account do
 
   describe '#withdraw' do
     it 'creates a new transaction' do
-      expect(@transaction_class).to receive(:new).with(-23.40)
+      expect(@transaction_class).to receive(:new).with(-23.40, -23.4)
       @account.withdraw(23.40)
     end
 
