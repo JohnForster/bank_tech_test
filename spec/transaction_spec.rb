@@ -18,4 +18,12 @@ describe Transaction do
     transaction = Transaction.new(5.43)
     expect(transaction.type).to eq(:deposit)
   end
+
+  it 'should store the time of the transaction' do
+    t1 = Time.new
+    transaction = Transaction.new(1)
+    t2 = Time.new
+    expect(t1 <=> transaction.time).to eq(-1)
+    expect(t2 <=> transaction.time).to eq(1)
+  end
 end
