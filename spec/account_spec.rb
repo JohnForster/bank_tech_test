@@ -18,5 +18,11 @@ describe Account do
       expect(@transaction_class).to receive(:new).with(-23.40)
       @account.withdraw(23.40)
     end
+
+    it 'raises an error if value given is negative' do
+      negative_error = 'Cannot withdraw a negative amount.'
+      stub_const('Account::NEGATIVE_WITHDRAWAL_ERROR', negative_error)
+      expect { @account.withdraw(-1) }.to raise_error negative_error
+    end
   end
 end

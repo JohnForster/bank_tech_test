@@ -2,6 +2,8 @@ require 'terminal-table'
 require './lib/transaction.rb'
 
 class Account
+  NEGATIVE_WITHDRAWAL_ERROR = 'Cannot withdraw a negative amount.'
+
   def initialize
     @balance = 0
     @transactions = []
@@ -12,6 +14,7 @@ class Account
   end
 
   def withdraw(amount)
+    raise ArgumentError, NEGATIVE_WITHDRAWAL_ERROR if amount < 0
     @transactions.push(Transaction.new(-amount))
   end
 
