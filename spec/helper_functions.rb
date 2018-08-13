@@ -1,5 +1,9 @@
-def output_as_array_without_spaces
+def capture_stdout
+  old_stdout = $stdout
+  $stdout = StringIO.new
+  yield
   $stdout.rewind
   output = $stdout.readlines
-  output.map { |line| line.strip.delete(' ') }
+  $stdout = old_stdout
+  output.map(&:strip)
 end
