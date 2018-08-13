@@ -20,7 +20,7 @@ class Account
     @transactions.push(Transaction.new(-amount))
   end
 
-  def print
+  def statement
     rows = @transactions
     table = Terminal::Table.new headings: %w[Date Credit Debit Balance], rows: rows
     puts table

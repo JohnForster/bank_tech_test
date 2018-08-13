@@ -8,14 +8,14 @@ describe 'Feature tests' do
   end
 
   it 'displays the results in a table of date, credit, debit and balance' do
-    output = capture_stdout { @bank_account.print }
+    output = capture_stdout { @bank_account.statement }
     output.map! { |line| line.delete(' ') }
     expect(output).to include('|Date|Credit|Debit|Balance|')
   end
 
   xit 'displays a deposit' do
     @bank_account.deposit(200)
-    output = capture_stdout { @bank_account.print }
+    output = capture_stdout { @bank_account.statement }
     output.map! { |line| line.delete(' ') }
     expect(output).to include("|#{Time.new().strftime("%d/%m/%Y")}|200.00||200.00|")
   end
@@ -26,7 +26,7 @@ describe 'Feature tests' do
     @bank_account.withdraw(150)
     @bank_account.deposit(33)
     output = capture_stdout do
-      @bank_account.print
+      @bank_account.statement
     end
     output.map! { |line| line.delete(' ') }
     expect(output).to include('|Date|Credit|Debit|Balance|')

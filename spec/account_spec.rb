@@ -31,4 +31,6 @@ describe Account do
       expect { @account.withdraw(-1) }.to raise_error negative_error
     end
   end
+
+  describe ''
 end
