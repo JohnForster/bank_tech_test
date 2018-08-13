@@ -1,5 +1,5 @@
+# Represents a single transaction, which is stored in the account.
 class Transaction
-
   TRANSACTION_ERROR = 'No transaction amount given'.freeze
 
   attr_reader :balance_change, :type, :time, :subsequent_balance

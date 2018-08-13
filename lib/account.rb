@@ -2,6 +2,7 @@ require 'terminal-table'
 require './lib/transaction.rb'
 require './lib/statement_printer.rb'
 
+# Represents a bank account, which can handle withdrawals and deposits.
 class Account
   NEGATIVE_WITHDRAWAL_ERROR = 'Cannot withdraw a negative amount.'.freeze
   NEGATIVE_DEPOSIT_ERROR = 'Cannot deposit a negative amount.'.freeze
