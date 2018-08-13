@@ -33,5 +33,6 @@ class StatementPrinter
     format('%.2f', number)
   end
 
-  private_class_method :row_array, :format_withdrawal, :format_deposit, :dmy_format
+  private_class_method :row_array, :format_withdrawal,
+                       :format_deposit, :dmy_format
 end
