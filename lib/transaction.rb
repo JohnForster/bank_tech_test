@@ -1,3 +1,6 @@
 class Transaction
-  def initialize(amount); end
+  attr_reader :balance_change
+  def initialize(amount)
+    @balance_change = amount
+  end
 end
