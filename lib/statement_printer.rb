@@ -12,20 +12,20 @@ class StatementPrinter
   end
 
   def self.format_withdrawal(trans)
-    [dmy(trans.time),
+    [dmy_format(trans.time),
      nil,
      two_dp(-trans.balance_change.round(2)),
      two_dp(trans.subsequent_balance.round(2))]
   end
 
   def self.format_deposit(trans)
-    [dmy(trans.time),
+    [dmy_format(trans.time),
      two_dp(trans.balance_change),
      nil,
      two_dp(trans.subsequent_balance.round(2))]
   end
 
-  def self.dmy(time)
+  def self.dmy_format(time)
     time.strftime('%_d/%_m/%Y')
   end
 
@@ -33,5 +33,5 @@ class StatementPrinter
     format('%.2f', number)
   end
 
-  private_class_method :row_array, :format_withdrawal, :format_deposit, :dmy
+  private_class_method :row_array, :format_withdrawal, :format_deposit, :dmy_format
 end

@@ -18,6 +18,12 @@ describe Account do
       stub_const('Account::NEGATIVE_DEPOSIT_ERROR', negative_error)
       expect { @account.deposit(-1) }.to raise_error negative_error
     end
+
+    it 'raises an error if more than two decimal places are given' do
+      decimal_error = 'More than two decimal places given.'
+      stub_const('Account::DECIMAL_ERROR', decimal_error)
+      expect { @account.deposit(23.4056) }.to raise_error decimal_error
+    end
   end
 
   describe '#withdraw' do
@@ -30,6 +36,12 @@ describe Account do
       negative_error = 'Cannot withdraw a negative amount.'
       stub_const('Account::NEGATIVE_WITHDRAWAL_ERROR', negative_error)
       expect { @account.withdraw(-1) }.to raise_error negative_error
+    end
+
+    it 'raises an error if more than two decimal places are given' do
+      decimal_error = 'More than two decimal places given.'
+      stub_const('Account::DECIMAL_ERROR', decimal_error)
+      expect { @account.withdraw(23.4056) }.to raise_error decimal_error
     end
   end
 
