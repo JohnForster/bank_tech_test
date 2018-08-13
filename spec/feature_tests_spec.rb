@@ -13,8 +13,15 @@ describe 'Feature tests' do
     expect(output).to include('|Date|Credit|Debit|Balance|')
   end
 
-  it 'is entirely functional' do
-    formatted_time = Time.new().strftime("%d/%m/%Y")
+  xit 'displays a deposit' do
+    @bank_account.deposit(200)
+    output = capture_stdout { @bank_account.print }
+    output.map! { |line| line.delete(' ') }
+    expect(output).to include("|#{Time.new().strftime("%d/%m/%Y")}|200.00||200.00|")
+  end
+
+  xit 'is entirely functional' do
+    formatted_time =
     @bank_account.deposit(400)
     @bank_account.withdraw(150)
     @bank_account.deposit(33)
