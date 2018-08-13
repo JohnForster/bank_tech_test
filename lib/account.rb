@@ -1,9 +1,14 @@
 require 'terminal-table'
+require './lib/transaction.rb'
 
 class Account
   def initialize
     @balance = 0
     @transactions = []
+  end
+
+  def deposit(amount)
+    @transactions.push(Transaction.new(amount))
   end
 
   def print
