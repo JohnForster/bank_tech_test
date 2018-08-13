@@ -26,7 +26,7 @@ class StatementPrinter
   end
 
   def self.dmy(time)
-    time.strftime("%_d/%_m/%Y")
+    time.strftime('%_d/%_m/%Y')
   end
 
   def self.two_dp(number)
