@@ -14,7 +14,7 @@ describe StatementPrinter do
                   balance_change: -20,
                   type: :withdrawal,
                   subsequent_balance: 20.14)
-      output = capture_stdout { StatementPrinter.print([t1, t2]) }
+      output = capture_stdout { StatementPrinter.print_statement([t1, t2]) }
       output.map! { |line| line.delete(' ') }
       expect(output).to include("|1/6/2018|40.14||40.14|")
       expect(output).to include('|1/7/2018||20.00|20.14|')

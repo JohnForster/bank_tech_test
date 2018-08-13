@@ -1,6 +1,6 @@
 # Outputs a formatted representation of transactions to the console.
 class StatementPrinter
-  def self.print(transaction_array)
+  def self.print_statement(transaction_array)
     rows = transaction_array.map { |t| row_array(t) }
     table = Terminal::Table.new headings: %w[Date Credit Debit Balance],
                                 rows: rows
