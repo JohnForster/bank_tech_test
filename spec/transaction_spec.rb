@@ -21,7 +21,9 @@ describe Transaction do
 
   it 'should store the time of the transaction' do
     t1 = Time.new
+    sleep(0.05)
     transaction = Transaction.new(1)
+    sleep(0.05)
     t2 = Time.new
     expect(t1 <=> transaction.time).to eq(-1)
     expect(t2 <=> transaction.time).to eq(1)
